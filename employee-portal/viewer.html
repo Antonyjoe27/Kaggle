@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course Player // EmployeeHub</title>
+  <!-- Google Fonts: Outfit for heading/UI, Inter for body -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Style Link -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- App Container -->
+  <div class="app-container">
+    
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-logo">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="url(#brand-grad)" />
+            <path d="M2 17L12 22L22 17" stroke="url(#brand-grad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2 12L12 17L22 12" stroke="url(#brand-grad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <defs>
+              <linearGradient id="brand-grad" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#8b5cf6" />
+                <stop offset="1" stop-color="#ec4899" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <span class="brand-name">EmployeeHub</span>
+      </div>
+
+      <!-- Navigation Links -->
+      <nav class="sidebar-nav">
+        <a href="home.html" class="nav-item" id="nav-dashboard">
+          <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          <span>Dashboard</span>
+        </a>
+        <a href="mandatory.html" class="nav-item" id="nav-mandatory">
+          <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span>Mandatory Courses</span>
+        </a>
+        <a href="skills.html" class="nav-item" id="nav-skills">
+          <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+          <span>Project & Skills</span>
+        </a>
+      </nav>
+
+      <!-- User Profile Card & Switcher in Sidebar Footer -->
+      <div class="sidebar-footer">
+        <div class="current-user-card">
+          <div class="user-avatar" id="sidebar-avatar">N/A</div>
+          <div class="user-info">
+            <h4 class="user-name" id="sidebar-username">N/A</h4>
+            <p class="user-role" id="sidebar-role">N/A</p>
+          </div>
+        </div>
+        <div class="switcher-wrapper">
+          <label for="user-profile-select">Demographic Mode:</label>
+          <div class="custom-select-wrapper">
+            <select id="user-profile-select" class="profile-select">
+              <!-- Options populated dynamically from users.json -->
+            </select>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      
+      <!-- Top Bar / Header -->
+      <header class="top-header">
+        <div class="header-welcome">
+          <h1 id="welcome-title">Welcome back!</h1>
+          <p class="current-date" id="current-date">N/A</p>
+        </div>
+        <div class="header-actions">
+          <div class="notifications-bell">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+            <span class="bell-badge"></span>
+          </div>
+          <div class="header-profile">
+            <div class="user-avatar-small" id="header-avatar">N/A</div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Scrollable Tab Container -->
+      <div class="content-body">
+        
+        <!-- Course Viewer (Detailed view) -->
+        <section id="course-viewer" class="tab-pane active">
+          <!-- Back button and title -->
+          <div class="viewer-header">
+            <button class="back-btn" id="viewer-back-btn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+              <span>Back to Dashboard</span>
+            </button>
+            <div class="course-meta-header">
+              <div>
+                <span class="course-category-badge" id="viewer-course-category">Security</span>
+                <h1 class="viewer-title" id="viewer-course-title">Cybersecurity Essentials</h1>
+              </div>
+              <div class="viewer-progress-wrapper">
+                <div class="progress-details">
+                  <span>Course Progress</span>
+                  <strong id="viewer-progress-percentage">45%</strong>
+                </div>
+                <div class="progress-bar-container">
+                  <div class="progress-bar-fill" id="viewer-progress-bar" style="width: 45%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Course Player Layout -->
+          <div class="course-player-layout">
+            <!-- Sidebar with lessons list -->
+            <aside class="course-toc">
+              <h3>Course Syllabus</h3>
+              <div class="toc-container" id="course-toc-container">
+                <!-- Dynamically populated syllabus chapters -->
+              </div>
+            </aside>
+
+            <!-- Active Lesson Panel -->
+            <div class="lesson-content-panel">
+              <div class="card glass-card scrollable-lesson" id="lesson-card">
+                <div class="lesson-header-meta">
+                  <span class="lesson-index" id="lesson-index-indicator">MODULE 1 • LESSON 1</span>
+                  <h2 class="lesson-title" id="lesson-active-title">Password Security & Multi-Factor Authentication</h2>
+                </div>
+                
+                <div class="lesson-body-content" id="lesson-body-content">
+                  <!-- Dynamic content (paragraphs, quiz elements, lists, custom illustrations) -->
+                </div>
+
+                <div class="lesson-actions-bar">
+                  <button class="btn btn-secondary" id="prev-lesson-btn" disabled>Previous Lesson</button>
+                  
+                  <button class="btn btn-primary" id="complete-lesson-btn">
+                    <svg class="check-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width.5="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span id="complete-btn-text">Mark as Completed</span>
+                  </button>
+
+                  <button class="btn btn-secondary" id="next-lesson-btn">Next Lesson</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- Confetti/Celebration Container -->
+  <div class="confetti-container" id="confetti-container"></div>
+
+  <!-- JavaScript file -->
+  <script src="app.js?v=3"></script>
+</body>
+</html>
